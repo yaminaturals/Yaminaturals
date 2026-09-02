@@ -1,0 +1,130 @@
+﻿@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    color: #1f2937;
+    background-color: #fdfbf7;
+  }
+  
+  body {
+    font-family: 'Plus Jakarta Sans', Inter, system-ui, sans-serif;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    letter-spacing: -0.02em;
+    color: #111827;
+  }
+
+  .font-serif-heading {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+  }
+
+  .font-display-heading {
+    font-family: 'Cinzel', Georgia, serif;
+  }
+}
+
+@layer components {
+  /* Layout Containers */
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-py {
+    @apply py-20 lg:py-28;
+  }
+
+  .section-py-lg {
+    @apply py-24 lg:py-36;
+  }
+
+  /* Architectural Editorial Cards */
+  .card-editorial {
+    @apply bg-white border border-[#e5dcce] transition-all duration-300;
+  }
+
+  .card-editorial-dark {
+    @apply bg-[#072115] border border-[#1d5537]/50 text-white transition-all duration-300;
+  }
+
+  .card-premium {
+    @apply bg-white border border-slate-200 shadow-sm transition duration-200;
+  }
+
+  /* Form Components & High-Visibility Textbox System */
+  .form-group {
+    @apply space-y-1.5;
+  }
+
+  .form-label {
+    @apply block text-xs font-mono font-bold uppercase tracking-wider text-slate-700;
+  }
+
+  .form-input {
+    @apply w-full bg-white border border-slate-300 rounded-none px-4 py-3 text-xs text-slate-900 placeholder:text-slate-400 placeholder:italic placeholder:font-normal focus:bg-white focus:border-[#1d5537] focus:ring-2 focus:ring-[#1d5537]/20 outline-none transition duration-150 shadow-sm;
+  }
+
+  .form-select {
+    @apply w-full bg-white border border-slate-300 rounded-none px-4 py-3 text-xs text-slate-900 focus:bg-white focus:border-[#1d5537] focus:ring-2 focus:ring-[#1d5537]/20 outline-none transition duration-150 shadow-sm cursor-pointer;
+  }
+
+  .form-textarea {
+    @apply w-full bg-white border border-slate-300 rounded-none px-4 py-3 text-xs text-slate-900 placeholder:text-slate-400 placeholder:italic placeholder:font-normal focus:bg-white focus:border-[#1d5537] focus:ring-2 focus:ring-[#1d5537]/20 outline-none transition duration-150 shadow-sm leading-relaxed;
+  }
+
+  /* Editorial Buttons */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2.5 px-6 py-3.5 text-xs font-semibold uppercase tracking-[0.14em] transition-all duration-200 cursor-pointer select-none;
+  }
+
+  .btn-primary {
+    @apply bg-[#072115] text-[#f4ede0] hover:bg-[#04130c] hover:text-white border border-[#1d5537]/60 active:scale-[0.99];
+  }
+
+  .btn-gold {
+    @apply bg-[#c5a059] text-[#072115] hover:bg-[#d9c497] font-bold border border-[#a6823c] active:scale-[0.99];
+  }
+
+  .btn-outline {
+    @apply bg-transparent text-[#072115] border border-[#072115]/30 hover:bg-[#072115] hover:text-[#f4ede0] active:scale-[0.99];
+  }
+
+  .btn-outline-white {
+    @apply bg-transparent text-[#f4ede0] border border-[#f4ede0]/30 hover:bg-[#f4ede0] hover:text-[#072115] active:scale-[0.99];
+  }
+
+  .btn-outline-gold {
+    @apply bg-transparent text-[#c5a059] border border-[#c5a059]/40 hover:bg-[#c5a059] hover:text-[#072115] active:scale-[0.99];
+  }
+
+  /* Editorial Badges & Eyebrows */
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-[11px] font-mono font-semibold uppercase tracking-[0.22em] text-[#c5a059] mb-3;
+  }
+
+  .eyebrow-dark {
+    @apply inline-flex items-center gap-2 text-[11px] font-mono font-semibold uppercase tracking-[0.22em] text-[#1d5537] mb-3;
+  }
+
+  .badge-tag {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 text-[10px] font-mono font-medium uppercase tracking-wider border;
+  }
+
+  .badge-forest {
+    @apply bg-[#072115] text-[#d9c497] border-[#1d5537]/60;
+  }
+
+  .badge-gold {
+    @apply bg-[#faf7f0] text-[#85642b] border-[#e8dbbe];
+  }
+
+  .badge-ivory {
+    @apply bg-[#f8f4ec] text-[#4b5563] border-[#e5dcce];
+  }
+}
