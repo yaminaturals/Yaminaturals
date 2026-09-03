@@ -1,4 +1,4 @@
-﻿@tailwind base;
+@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
@@ -18,7 +18,7 @@
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
     letter-spacing: -0.02em;
-    color: #111827;
+    color: inherit;
   }
 
   .font-serif-heading {
@@ -112,19 +112,23 @@
     @apply inline-flex items-center gap-2 text-[11px] font-mono font-semibold uppercase tracking-[0.22em] text-[#1d5537] mb-3;
   }
 
+  .badge {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 text-[11px] font-mono font-semibold uppercase tracking-wider border;
+  }
+
   .badge-tag {
     @apply inline-flex items-center gap-1.5 px-2.5 py-1 text-[10px] font-mono font-medium uppercase tracking-wider border;
   }
 
   .badge-forest {
-    @apply bg-[#072115] text-[#d9c497] border-[#1d5537]/60;
+    @apply bg-[#072115] text-[#d9c497] border-[#1d5537]/70 shadow-sm;
   }
 
   .badge-gold {
-    @apply bg-[#faf7f0] text-[#85642b] border-[#e8dbbe];
+    @apply bg-[#072115] text-[#d9c497] border-[#c5a059]/50 shadow-sm;
   }
 
   .badge-ivory {
-    @apply bg-[#f8f4ec] text-[#4b5563] border-[#e5dcce];
+    @apply bg-[#faf7f0] text-[#85642b] border-[#e8dbbe];
   }
 }
