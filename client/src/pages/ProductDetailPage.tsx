@@ -144,7 +144,7 @@ export const ProductDetailPage: React.FC = () => {
       />
 
       {/* Scientific Breadcrumb */}
-      <div className="bg-[#f8f4ec] py-3.5 border-b border-[#e5dcce] text-xs font-mono text-[#6b7280]">
+      <div className="bg-[#f8f4ec] pt-28 sm:pt-32 pb-3.5 border-b border-[#e5dcce] text-xs font-mono text-[#6b7280]">
         <div className="container-custom flex items-center gap-2">
           <Link to="/" className="hover:text-[#111827] transition">Home</Link>
           <ChevronRight size={12} className="text-[#9ca3af]" />

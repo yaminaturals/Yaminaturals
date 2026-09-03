@@ -50,7 +50,7 @@ export const FAQPage: React.FC = () => {
         description="Commonly asked questions regarding botanical extracts, testing, pharmacopoeial COA, and exports." 
       />
 
-      <div className="bg-slate-950 text-white pt-28 pb-16 border-b border-slate-800">
+      <div className="bg-slate-950 text-white pt-36 pb-16 lg:pt-40 lg:pb-20 border-b border-slate-800">
         <div className="container-custom">
           <span className="badge badge-gold mb-3">Knowledge Base</span>
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight">

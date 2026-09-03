@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { SEO } from '../components/common/SEO';
 import { QuoteModal } from '../components/common/QuoteModal';
@@ -108,8 +108,8 @@ export const SolutionDetailPage: React.FC = () => {
         description={`B2B ${current.title} services for global nutraceutical and botanical brands.`} 
       />
 
-      <div className="bg-slate-100/70 py-3.5 border-b border-slate-200/60">
-        <div className="container-custom flex items-center gap-2 text-xs text-slate-600">
+      <div className="bg-slate-100 border-b border-slate-200 pt-28 sm:pt-32 pb-3.5 text-xs text-slate-500">
+        <div className="container-custom flex items-center gap-2">
           <Link to="/" className="hover:text-emerald-800">Home</Link>
           <ChevronRight size={12} />
           <Link to="/solutions" className="hover:text-emerald-800">Solutions</Link>

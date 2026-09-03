@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { SEO } from '../components/common/SEO';
 import { api } from '../services/api';
@@ -22,7 +22,7 @@ export const ResourcesPage: React.FC = () => {
         description="Phytochemical monographs, regulatory dossiers, and extraction science whitepapers." 
       />
 
-      <div className="bg-slate-950 text-white pt-28 pb-16 border-b border-slate-800">
+      <div className="bg-slate-950 text-white pt-36 pb-16 lg:pt-40 lg:pb-20 border-b border-slate-800">
         <div className="container-custom">
           <span className="badge badge-gold mb-3">Science & Regulatory</span>
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight">

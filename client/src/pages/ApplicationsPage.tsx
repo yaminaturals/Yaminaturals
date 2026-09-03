@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { SEO } from '../components/common/SEO';
 import { Pill, Activity, Coffee, Sparkles, Heart, ArrowRight } from 'lucide-react';
@@ -49,7 +49,7 @@ export const ApplicationsPage: React.FC = () => {
         description="Botanical ingredients engineered for supplements, sports nutrition, RTD beverages, functional foods, and cosmeceuticals." 
       />
 
-      <div className="bg-slate-950 text-white pt-28 pb-16 border-b border-slate-800">
+      <div className="bg-slate-950 text-white pt-36 pb-16 lg:pt-40 lg:pb-20 border-b border-slate-800">
         <div className="container-custom">
           <span className="badge badge-gold mb-3">Industry Solutions</span>
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight">

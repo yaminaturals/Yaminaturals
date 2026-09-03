@@ -44,7 +44,7 @@ export const ManufacturingPage: React.FC = () => {
         description="Pharmaceutical-grade SS-316L extraction, vacuum evaporation, and Class 100k cleanroom spray drying." 
       />
 
-      <div className="bg-slate-950 text-white pt-28 pb-16 border-b border-slate-800 relative overflow-hidden">
+      <div className="bg-slate-950 text-white pt-36 pb-16 lg:pt-40 lg:pb-20 border-b border-slate-800 relative overflow-hidden">
         <div className="absolute inset-0 opacity-25 pointer-events-none">
           <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1920&q=80" alt="Mfg Hero" className="w-full h-full object-cover" />
         </div>

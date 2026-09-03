@@ -5,7 +5,7 @@ export const TermsPage: React.FC = () => {
   return (
     <>
       <SEO title="Terms & Conditions | YAMI NATURLS" description="Batch-specific COA warranties, Incoterms, and bulk supply terms." />
-      <div className="bg-slate-950 text-white pt-28 pb-16 border-b border-slate-800">
+      <div className="bg-slate-950 text-white pt-36 pb-16 lg:pt-40 lg:pb-20 border-b border-slate-800">
         <div className="container-custom">
           <h1 className="text-3xl sm:text-4xl font-bold">Terms of B2B Supply</h1>
           <p className="text-sm text-slate-400 mt-2">Last Updated: January 2026</p>

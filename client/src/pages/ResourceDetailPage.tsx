@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { SEO } from '../components/common/SEO';
 import { api } from '../services/api';
@@ -43,7 +43,7 @@ export const ResourceDetailPage: React.FC = () => {
         description={resource.summary} 
       />
 
-      <div className="bg-slate-100/70 py-3.5 border-b border-slate-200/60">
+      <div className="bg-slate-100/70 pt-28 sm:pt-32 pb-3.5 border-b border-slate-200/60">
         <div className="container-custom flex items-center gap-2 text-xs text-slate-600">
           <Link to="/" className="hover:text-emerald-800">Home</Link>
           <ChevronRight size={12} />
