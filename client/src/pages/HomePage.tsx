@@ -11,6 +11,7 @@ import { CustomFormulationFlow } from '../components/home/CustomFormulationFlow'
 import { QualityMatrix } from '../components/home/QualityMatrix';
 import { GlobalSupply } from '../components/home/GlobalSupply';
 import { ApplicationsMatrix } from '../components/home/ApplicationsMatrix';
+import { ProcurementServices } from '../components/home/ProcurementServices';
 import { CTASection } from '../components/home/CTASection';
 import { FAQAccordion } from '../components/home/FAQAccordion';
 
@@ -32,6 +33,7 @@ export const HomePage: React.FC = () => {
       <QualityMatrix />
       <GlobalSupply />
       <ApplicationsMatrix />
+      <ProcurementServices />
       <CTASection />
       <FAQAccordion />
     </>
