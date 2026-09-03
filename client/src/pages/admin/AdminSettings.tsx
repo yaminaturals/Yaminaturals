@@ -1,41 +1,36 @@
 import React, { useState, useEffect } from 'react';
-import { api } from '../../services/api';
+import { useSettings } from '../../context/SettingsContext';
 import { Save, Loader2, Check } from 'lucide-react';
 
 export const AdminSettings: React.FC = () => {
-  const [loading, setLoading] = useState(true);
+  const { settings, updateSettings, loading } = useSettings();
   const [saved, setSaved] = useState(false);
 
-  const [companyName, setCompanyName] = useState('YAMI NATURALS');
-  const [tagline, setTagline] = useState('Nature, Standardized. Science, Delivered.');
-  const [contactEmail, setContactEmail] = useState('contact@yaminaturals.com');
-  const [contactPhone, setContactPhone] = useState('+91 (0) 22 8902 4400');
-  const [hqAddress, setHqAddress] = useState('Corporate HQ, Yami Naturals Gateway, India');
-  const [facilityAddress, setFacilityAddress] = useState('Industrial Extraction Zone, ISO 22000:2018 & GMP Facility, India');
-  const [defaultMoq, setDefaultMoq] = useState('25 kg');
+  const [companyName, setCompanyName] = useState(settings.companyName || 'YAMI NATURALS');
+  const [tagline, setTagline] = useState(settings.tagline || 'Nature, Standardized. Science, Delivered.');
+  const [contactEmail, setContactEmail] = useState(settings.contactEmail || 'contact@yaminaturals.com');
+  const [contactPhone, setContactPhone] = useState(settings.contactPhone || '+91 8780664057');
+  const [hqAddress, setHqAddress] = useState(settings.hqAddress || 'Corporate HQ, YAMI NATURALS Tower, Industrial Gateway, Mumbai 400001, India');
+  const [facilityAddress, setFacilityAddress] = useState(settings.facilityAddress || 'Industrial Extraction Zone, ISO 22000:2018 & cGMP Facility, India');
+  const [defaultMoq, setDefaultMoq] = useState(settings.defaultMoq || '25 kg');
 
   useEffect(() => {
-    api.getSettings()
-      .then(res => {
-        if (res && res.settings) {
-          const st = res.settings;
-          if (st.companyName) setCompanyName(st.companyName);
-          if (st.tagline) setTagline(st.tagline);
-          if (st.contactEmail) setContactEmail(st.contactEmail);
-          if (st.contactPhone) setContactPhone(st.contactPhone);
-          if (st.hqAddress) setHqAddress(st.hqAddress);
-          if (st.facilityAddress) setFacilityAddress(st.facilityAddress);
-          if (st.defaultMoq) setDefaultMoq(st.defaultMoq);
-        }
-      })
-      .finally(() => setLoading(false));
-  }, []);
+    if (settings) {
+      if (settings.companyName) setCompanyName(settings.companyName);
+      if (settings.tagline) setTagline(settings.tagline);
+      if (settings.contactEmail) setContactEmail(settings.contactEmail);
+      if (settings.contactPhone) setContactPhone(settings.contactPhone);
+      if (settings.hqAddress) setHqAddress(settings.hqAddress);
+      if (settings.facilityAddress) setFacilityAddress(settings.facilityAddress);
+      if (settings.defaultMoq) setDefaultMoq(settings.defaultMoq);
+    }
+  }, [settings]);
 
   const handleSave = async (e: React.FormEvent) => {
     e.preventDefault();
     setSaved(false);
 
-    await api.updateSettings({
+    const success = await updateSettings({
       companyName,
       tagline,
       contactEmail,
@@ -45,8 +40,10 @@ export const AdminSettings: React.FC = () => {
       defaultMoq
     });
 
-    setSaved(true);
-    setTimeout(() => setSaved(false), 3000);
+    if (success) {
+      setSaved(true);
+      setTimeout(() => setSaved(false), 3000);
+    }
   };
 
   if (loading) {

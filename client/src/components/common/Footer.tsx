@@ -1,8 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Mail, Phone, MapPin, Globe, Shield, FileText, ArrowUpRight } from 'lucide-react';
+import { useSettings } from '../../context/SettingsContext';
 
 export const Footer: React.FC = () => {
+  const { settings } = useSettings();
+
   return (
     <footer className="bg-[#04130c] text-white border-t border-[#1d5537]/40 pt-20 pb-12">
       <div className="container-custom">
@@ -17,7 +20,7 @@ export const Footer: React.FC = () => {
                 className="h-14 sm:h-16 w-auto object-contain transition-transform duration-200 group-hover:scale-[1.02]" 
               />
               <div className="text-[10px] font-mono tracking-[0.24em] text-[#c5a059] uppercase mt-3">
-                Nature, Standardized. Science, Delivered.
+                {settings.tagline || 'Nature, Standardized. Science, Delivered.'}
               </div>
             </Link>
 
@@ -28,15 +31,19 @@ export const Footer: React.FC = () => {
             <div className="pt-2 text-xs font-mono text-[#c5a059] space-y-1.5">
               <div className="flex items-center gap-2">
                 <MapPin size={13} className="text-[#c5a059] flex-shrink-0" />
-                <span>Corporate HQ: Mumbai 400001, India</span>
+                <span>{settings.hqAddress || 'Corporate HQ: Mumbai 400001, India'}</span>
               </div>
               <div className="flex items-center gap-2">
                 <Mail size={13} className="text-[#c5a059] flex-shrink-0" />
-                <span>contact@yaminaturals.com</span>
+                <a href={`mailto:${settings.contactEmail}`} className="hover:underline">
+                  {settings.contactEmail || 'contact@yaminaturals.com'}
+                </a>
               </div>
               <div className="flex items-center gap-2">
                 <Phone size={13} className="text-[#c5a059] flex-shrink-0" />
-                <span>+91 (0) 22 8902 4400</span>
+                <a href={`tel:${settings.contactPhone}`} className="hover:underline">
+                  {settings.contactPhone || '+91 8780664057'}
+                </a>
               </div>
             </div>
           </div>

@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { SEO } from '../components/common/SEO';
 import { api } from '../services/api';
+import { useSettings } from '../context/SettingsContext';
 import { Mail, Phone, MapPin, Send, Check, Loader2, Clock, Globe } from 'lucide-react';
 
 export const ContactPage: React.FC = () => {
+  const { settings } = useSettings();
   const [name, setName] = useState('');
   const [company, setCompany] = useState('');
   const [email, setEmail] = useState('');
@@ -73,7 +75,7 @@ export const ContactPage: React.FC = () => {
                   <div>
                     <div className="font-bold text-slate-900 mb-0.5">Corporate HQ &amp; Export Office</div>
                     <p className="text-slate-600 leading-relaxed">
-                      YAMI NATURALS Tower, Plot 42-A, Industrial Gateway, Mumbai, Maharashtra 400001, India
+                      {settings.hqAddress || 'YAMI NATURALS Tower, Plot 42-A, Industrial Gateway, Mumbai, Maharashtra 400001, India'}
                     </p>
                   </div>
                 </div>
@@ -84,8 +86,12 @@ export const ContactPage: React.FC = () => {
                   </div>
                   <div>
                     <div className="font-bold text-slate-900 mb-0.5">Commercial Email</div>
-                    <p className="text-slate-600">contact@yaminaturals.com</p>
-                    <p className="text-slate-600">export@yaminaturals.com</p>
+                    <p className="text-slate-600">
+                      <a href={`mailto:${settings.contactEmail}`} className="hover:underline">
+                        {settings.contactEmail || 'contact@yaminaturals.com'}
+                      </a>
+                    </p>
+                    <p className="text-slate-500 text-tiny">Export Desk: export@yaminaturals.com</p>
                   </div>
                 </div>
 
@@ -95,8 +101,12 @@ export const ContactPage: React.FC = () => {
                   </div>
                   <div>
                     <div className="font-bold text-slate-900 mb-0.5">Direct Commercial Phone</div>
-                    <p className="text-slate-600">+91 (0) 22 8902 4400</p>
-                    <p className="text-slate-600">+91 (0) 22 8902 4401 (Export Desk)</p>
+                    <p className="text-slate-600">
+                      <a href={`tel:${settings.contactPhone}`} className="hover:underline">
+                        {settings.contactPhone || '+91 8780664057'}
+                      </a>
+                    </p>
+                    <p className="text-slate-500 text-tiny">Direct Liaison Desk: 24/7 Response via Commercial Portal</p>
                   </div>
                 </div>
 
