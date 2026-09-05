@@ -252,6 +252,15 @@ class DatabaseStore {
     return false;
   }
 
+  public toggleQuoteStar(id: string, starred?: boolean): Quote | null {
+    const idx = this.data.quotes.findIndex(q => q.id === id);
+    if (idx === -1) return null;
+    this.data.quotes[idx].starred = starred !== undefined ? starred : !this.data.quotes[idx].starred;
+    this.data.quotes[idx].updatedAt = new Date().toISOString();
+    this.save();
+    return this.data.quotes[idx];
+  }
+
   // Contacts
   public getContacts(): ContactInquiry[] {
     return this.data.contacts;

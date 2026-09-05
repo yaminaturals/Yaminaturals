@@ -1,4 +1,4 @@
-﻿export interface ProductSpecs {
+export interface ProductSpecs {
   assay: string;
   activeMarker?: string;
   appearance: string;
@@ -67,6 +67,7 @@ export interface Quote {
   incoterm?: string;
   message?: string;
   status: 'New' | 'In Review' | 'Quoted' | 'Closed' | string;
+  starred?: boolean;
   createdAt: string;
   updatedAt?: string;
 }

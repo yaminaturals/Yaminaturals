@@ -1,4 +1,4 @@
-﻿import { Router, Request, Response } from 'express';
+import { Router, Request, Response } from 'express';
 import { dbStore } from '../storage/dbStore';
 import { requireAdmin } from '../middleware/auth';
 import { validateInquiry } from '../middleware/validator';
@@ -36,6 +36,18 @@ quoteRouter.patch('/:id/status', requireAdmin, (req: Request, res: Response) => 
   }
 
   res.json({ message: 'Quote status updated', quote: updated });
+});
+
+quoteRouter.patch('/:id/star', requireAdmin, (req: Request, res: Response) => {
+  const { id } = req.params;
+  const { starred } = req.body;
+  const updated = dbStore.toggleQuoteStar(id, starred);
+
+  if (!updated) {
+    return res.status(404).json({ error: 'Quote not found' });
+  }
+
+  res.json({ message: 'Quote star toggled', quote: updated });
 });
 
 quoteRouter.delete('/:id', requireAdmin, (req: Request, res: Response) => {

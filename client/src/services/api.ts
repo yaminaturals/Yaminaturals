@@ -221,6 +221,13 @@ export const api = {
     });
   },
 
+  toggleQuoteStar: async (id: string, starred?: boolean): Promise<{ message: string; quote: Quote }> => {
+    return fetchJson<{ message: string; quote: Quote }>(`/quotes/${id}/star`, {
+      method: 'PATCH',
+      body: JSON.stringify({ starred }),
+    });
+  },
+
   deleteQuote: async (id: string): Promise<{ message: string }> => {
     return fetchJson<{ message: string }>(`/quotes/${id}`, {
       method: 'DELETE',
