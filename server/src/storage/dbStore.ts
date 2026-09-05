@@ -30,6 +30,7 @@ interface DatabaseSchema {
   resources: Resource[];
   faqs: FAQ[];
   settings: SiteSettings;
+  visitorCount?: number;
 }
 
 const DATA_DIR = path.join(__dirname, '..', '..', 'data');
@@ -395,6 +396,17 @@ class DatabaseStore {
     };
     this.save();
     return this.data.settings;
+  }
+
+  // Visitor Counter
+  public getVisitorCount(): number {
+    return this.data.visitorCount || 14892;
+  }
+
+  public incrementVisitorCount(): number {
+    this.data.visitorCount = (this.data.visitorCount || 14892) + 1;
+    this.save();
+    return this.data.visitorCount;
   }
 
   public reseed(): void {

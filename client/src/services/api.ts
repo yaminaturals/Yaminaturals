@@ -1,4 +1,4 @@
-﻿import {
+import {
   Product,
   Category,
   Application,
@@ -361,6 +361,17 @@ export const api = {
     return fetchJson<{ message: string; settings: SiteSettings }>('/settings', {
       method: 'PUT',
       body: JSON.stringify(settings),
+    });
+  },
+
+  // Visitors
+  getVisitorCount: async (): Promise<{ count: number }> => {
+    return fetchJson<{ count: number }>('/settings/visitors');
+  },
+
+  incrementVisitorCount: async (): Promise<{ count: number }> => {
+    return fetchJson<{ count: number }>('/settings/visitors/increment', {
+      method: 'POST'
     });
   },
 
